@@ -3,3 +3,5 @@
 .arrow{display:inline-flex;width:20px;height:20px;flex-shrink:0}.arrow svg{width:100%;height:100%}.scroll-arrow{width:8px;height:20px;position:relative;border-left:1px solid #b2c2d0}.scroll-arrow:after{content:'';position:absolute;width:6px;height:6px;border-bottom:1px solid #b2c2d0;border-right:1px solid #b2c2d0;transform:rotate(45deg);left:-4px;bottom:0}.hero h1>span{color:#fff}.card-link{min-width:44px;min-height:44px}.footer-bottom a{display:inline-block;padding:8px 0}.feature.strategy img{object-position:40% center}
 
 #contact-form fieldset{border:0;margin:0;padding:0;width:100%;display:flex;flex-direction:column;align-items:start;min-width:0}
+
+.business-phone{margin-top:28px}.business-phone>a{display:inline-flex;align-items:center;min-height:48px;font-size:28px;font-weight:700;letter-spacing:-.6px;color:#8acaff}.business-phone>a:hover,.footer-phone:hover{text-decoration:underline}.footer-phone{display:inline-flex;align-items:center;min-height:44px;color:#8acaff}

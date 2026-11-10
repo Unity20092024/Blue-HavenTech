@@ -30,7 +30,7 @@ The script checks all pages at 390px and 1440px, loads lazy images through scrol
 
 ## Contact behavior and launch details
 
-The contact form intentionally prepares a local text-file download. It does **not** send requests or claim that a message was delivered. No public company email address was supplied. Replace this preview behavior with an approved email destination or form service before launching consultation intake; update Privacy Policy accordingly. Do not put private service keys in client code.
+The contact form intentionally prepares a local text-file download. It does **not** send requests or claim that a message was delivered. Business phone: (612) 703-9119, linked on Contact and in the global footer. No public company email address was supplied. Replace this preview behavior with an approved email destination or form service before launching consultation intake; update Privacy Policy accordingly. Do not put private service keys in client code.
 
 Copy ties “20+ years” specifically to the founder’s advertising experience, without claiming a company operating history or invented performance metrics. Services describe a proposed offering; confirm scope and public company/legal contact details before production. The legal pages accurately describe this frontend's current behavior and should be reviewed for the final business and hosting configuration.
 
