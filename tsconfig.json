@@ -10,10 +10,13 @@
     "moduleResolution": "Bundler",
     "strict": true,
     "noEmit": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "allowImportingTsExtensions": true
   },
   "include": [
     "src",
-    "vite.config.ts"
+    "vite.config.ts",
+    "api",
+    "server"
   ]
 }

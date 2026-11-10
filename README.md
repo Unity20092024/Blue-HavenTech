@@ -1,49 +1,40 @@
 # Haven BlueTech
 
-A lightweight, photographic, responsive frontend built with Vite and strict TypeScript. Pages are prerendered to static HTML for readable content without JavaScript. No runtime framework, backend, tracking, database, external font, or image CDN dependency.
+A lightweight Vite + strict TypeScript frontend, with prerendered HTML and a prepared Vercel Node 24 contact endpoint. The approved photography, palette, layout, typography, and signature button styles are preserved. The contact endpoint is **disabled by default**, pending approved provider setup and a real delivery test. No runtime npm dependencies are added.
 
-## Local development
+## Local checks
 
 Requires Node.js 24.x and npm.
 
 ```sh
 npm ci
-npm run dev
-npm run typecheck
 npm run build
-npm run preview -- --port 5173
-```
-
-Seven pages: Home, About, Services, How It Works, Contact, Privacy Policy, Terms. Vercel settings are included in `vercel.json`: `npm run build`, output `dist`, and clean URLs. No deployment is performed by the project scripts.
-
-## Review previews
-
-Desktop and mobile screenshots for all seven pages are in `previews/`. Start the production preview above for an interactive review.
-
-With Chromium installed at `/usr/bin/chromium`, run:
-
-```sh
+npm run typecheck
+npm run lint
+npm test
 npm run test:browser
 ```
 
-The script starts its own production preview on loopback port 4173 and checks all seven pages at 360, 390, 430, 768, 1024, and 1440px. It checks page errors, images, metadata, footer/navigation links, overflow, mobile navigation, inquiry validation/downloads/drafts, and no-JavaScript content. Extra home/contact overflow checks cover 320px. Results are recorded in `previews/verification.json`.
+`npm run dev` and `npm run preview` serve the frontend. Vite alone does not run the Vercel endpoint. `test:browser` starts a local production preview on loopback port 4173 and exercises form UI and the real Web handler using test-only provider responses. It never uses provider accounts or sends email. Chromium must be installed; use `CHROMIUM_EXECUTABLE` to select a binary if necessary.
 
-## Contact behavior and launch details
+Seven pages: Home, About, Services, How It Works, Contact, Privacy Policy, Terms. Vercel settings: `npm ci`, `npm run build`, output `dist`, Node 24, clean URLs. The native endpoint lives at `api/contact.ts` and is built separately by Vercel. No deployment is run by the npm scripts.
 
-The contact form intentionally prepares a local text-file download. It does **not** send requests or claim that a message was delivered. Business phone: (612) 703-9119, linked on Contact and in the global footer. Public email: mplsmntowers@gmail.com. A prefilled email link lets visitors review and send an inquiry in their own email app. The website does not send automatically. Do not put private service keys in client code.
+## Current work: Phase 4
 
-Copy ties “20+ years” specifically to the founder’s advertising experience, without claiming a company operating history or invented performance metrics. Services describe a proposed offering; confirm scope and public company/legal contact details before production. The legal pages accurately describe this frontend's current behavior and should be reviewed for the final business and hosting configuration.
+Read [CONTACT-SETUP.md](CONTACT-SETUP.md) before any provider account setup, DNS edits, environment changes, or delivery testing. It documents the proposed Resend + Upstash free-tier solution, approvals, exact variables, data handling, business details, and unresolved domain/DNS readiness. [PHASE4-VERIFICATION.md](PHASE4-VERIFICATION.md) records what was actually tested.
 
-## Design and accessibility
+The server recipient remains **mplsmntowers@gmail.com**. Phone: **(612) 703-9119**. Automatic submission uses server validation, explicit inquiry-only consent, a honeypot, a shared Redis limit, and provider idempotency. Missing configuration/services fail closed with an honest error and direct contact alternatives. HTTP 202 means accepted for sending, not confirmed inbox delivery. No live email, provider acceptance, or inbox receipt has been verified.
 
-Navy foundation, electric blue and restrained violet accents, 2400px hero, asymmetric five-card photographic bento, rounded CTAs, and founder experience glass card. Local SVG brand mark is an original frontend interpretation of the supplied reference, not a recovered brand asset. No registered trademark assertion is made.
+Business name/address were supplied by the owner. Registered-name/DBA details and the proposed 90-day unconverted-inquiry cleanup policy still need confirmation. The privacy page describes the not-yet-activated services conditionally; do not remove those qualifications until setup and actual handling are confirmed.
 
-Mobile parallax is disabled. Reduced-motion preferences disable transitions, reveal animation, and parallax. Desktop parallax is limited to fine-pointer devices and disabled for data-saving connections. Keyboard focus styles, a skip link, semantic landmarks, labeled native form controls, and a dismissible mobile menu are included. Photography sources and licenses are documented in `PHOTO-CREDITS.md`.
+## Previews and design
 
-## Repository state
+`previews/` includes responsive screenshots and `verification.json` covering 360, 390, 430, 768, 1024 and 1440px; extra home/contact overflow checks cover 320px. All seven pages are pictured at 390px and 1440px. Form tests simulate unavailable service, validation, rate rejection, and acceptance messages; no screenshot is proof of real email delivery.
 
-Repository was empty on initial inspection: no files, branches, commits, or existing work. All frontend work is on `feat/haven-bluetech-frontend`. An empty baseline commit is available as the branch's root so `main` can be initialized with no website files if authorized. No merge or production deployment is authorized.
+Photos are local WebP files with a 2400px hero. Their sources/licenses are in [PHOTO-CREDITS.md](PHOTO-CREDITS.md). Reduced motion and mobile parallax restrictions remain intact. Contact-only additions support consent, honeypot hiding, invalid fields, and pending state; original homepage/button styling is unchanged.
 
-## Phase 2 pre-deployment review
+The protected Phase 3 Preview remains at commit `a7c3984` and has not received Phase 4 changes. Phase 4 is not deployed. [DEPLOYMENT.md](DEPLOYMENT.md) describes current preparation. `PHASE2-VERIFICATION.md` is a historical audit of the earlier static draft/download form, not a description of the new server endpoint.
 
-See [PHASE2-VERIFICATION.md](PHASE2-VERIFICATION.md) for results and remaining issues, and [DEPLOYMENT.md](DEPLOYMENT.md) for Vercel settings, environment variables, canonical/indexing strategy, and the exact Preview-only next step. `npm run lint` and `npm test` are available. No deployment has been performed.
+## Repository boundaries
+
+Work stays on `feat/haven-bluetech-frontend`. No merge or production deployment is authorized. `main` has never been initialized; a draft PR to `main` remains blocked pending approval of the empty baseline. Do not deploy the repository's default feature branch as production.

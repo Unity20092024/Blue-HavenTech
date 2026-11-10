@@ -36,3 +36,10 @@ test('preview remains noindex even when production canonical is configured; 404 
   assert.match(pageMetadata(html,'/',metadata),/content="noindex,nofollow"/);
   assert.doesNotMatch(pageMetadata(html,'/404',metadata,true),/rel="canonical"/);
 });
+
+test('business-confirmed havenbluetech.com can be canonical without indexing a Preview', () => {
+  const production = siteMetadata({VERCEL_ENV:'production',SITE_URL:'https://havenbluetech.com'});
+  assert.match(pageMetadata(html,'/contact',production),/rel="canonical" href="https:\/\/havenbluetech.com\/contact"/);
+  const preview = siteMetadata({VERCEL_ENV:'preview',SITE_URL:'https://havenbluetech.com'});
+  assert.match(pageMetadata(html,'/contact',preview),/content="noindex,nofollow"/);
+});

@@ -1,3 +1,4 @@
+import { validateInquiry } from './contact-fields';
 import { renderPage } from './render';
 const route = location.pathname.replace(/\/$/, '').replace(/\.html$/, '') || '/';
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = renderPage(route);
@@ -11,46 +12,76 @@ const reduced = matchMedia('(prefers-reduced-motion: reduce)');
 if (!reduced.matches && 'IntersectionObserver' in window) { const observer = new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}});},{threshold:0.08});document.querySelectorAll('.reveal').forEach(el=>{el.classList.add('will-reveal');observer.observe(el);}); }
 const heroImage = document.querySelector<HTMLElement>('.hero > img');
 if(heroImage&&matchMedia('(min-width: 901px) and (pointer: fine)').matches&&!reduced.matches&&!(navigator as Navigator&{connection?:{saveData:boolean}}).connection?.saveData){let ticking=false;window.addEventListener('scroll',()=>{if(!ticking){requestAnimationFrame(()=>{heroImage.style.transform=`translateY(${Math.min(window.scrollY*0.12,90)}px) scale(1.08)`;ticking=false;});ticking=true;}},{passive:true});}
-const inquiryFields=document.querySelector<HTMLFieldSetElement>('#contact-form fieldset');
-if(inquiryFields) inquiryFields.disabled=false;
 const inquiryForm = document.querySelector<HTMLFormElement>('#contact-form');
-const draft = document.querySelector<HTMLAnchorElement>('#email-draft');
+const inquiryFields = inquiryForm?.querySelector<HTMLFieldSetElement>('fieldset');
 const status = document.querySelector<HTMLElement>('#form-status');
-inquiryForm?.addEventListener('input', () => {
-  inquiryForm.querySelectorAll<HTMLInputElement | HTMLTextAreaElement>('input, textarea').forEach(field => field.setCustomValidity(''));
-  if (draft) {
-    draft.href = 'mailto:mplsmntowers@gmail.com';
-    draft.textContent = 'Email us directly';
+const formError = document.querySelector<HTMLElement>('#form-error');
+const submitButton = inquiryForm?.querySelector<HTMLButtonElement>('button[type="submit"]');
+if (inquiryFields) inquiryFields.disabled = false;
+let submissionId = crypto.randomUUID();
+let submitting = false;
+
+function clearErrors() {
+  inquiryForm?.querySelectorAll('[aria-invalid]').forEach(field => field.removeAttribute('aria-invalid'));
+  if (formError) { formError.hidden = true; formError.textContent = ''; }
+}
+function showError(message: string, errors: Record<string, string> = {}) {
+  for (const key of ['name', 'email', 'company', 'interest', 'message', 'consent']) {
+    if (errors[key]) document.getElementById(key)?.setAttribute('aria-invalid', 'true');
   }
+  if (formError) {
+    formError.textContent = message + (Object.keys(errors).length ? ' ' + Object.values(errors).join(' ') : '');
+    formError.hidden = false;
+    formError.focus();
+  }
+}
+inquiryForm?.addEventListener('input', () => {
+  clearErrors();
   if (status) status.textContent = '';
+  submissionId = crypto.randomUUID();
 });
-inquiryForm?.addEventListener('submit', event => {
+inquiryForm?.addEventListener('submit', async event => {
   event.preventDefault();
-  const data = new FormData(inquiryForm);
-  const name = inquiryForm.querySelector<HTMLInputElement>('#name')!;
-  const message = inquiryForm.querySelector<HTMLTextAreaElement>('#message')!;
-  name.setCustomValidity(name.value.trim() ? '' : 'Please enter your name.');
-  message.setCustomValidity(message.value.trim().length >= 10 ? '' : 'Please enter at least 10 characters about your goals.');
-  if (!inquiryForm.reportValidity()) return;
-  const fields = Array.from(data.entries()).map(([key, value]) => `${key}: ${String(value).trim()}`).join('\n\n');
-  const body = `Haven BlueTech — consultation inquiry\n\n${fields}`;
-  const text = `${body}\n\nThis inquiry has not been sent.`;
-  const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
-  const url = URL.createObjectURL(blob);
-  const download = document.createElement('a');
-  download.href = url;
-  download.download = 'haven-bluetech-inquiry.txt';
-  download.click();
-  setTimeout(() => URL.revokeObjectURL(url), 1000);
-  const subject = encodeURIComponent('Haven BlueTech consultation inquiry');
-  const fullDraft = `mailto:mplsmntowers@gmail.com?subject=${subject}&body=${encodeURIComponent(body)}`;
-  // Email clients have different URL limits. Keep the downloaded file as a
-  // reliable fallback for long inquiries rather than silently truncating them.
-  const longInquiry = fullDraft.length > 1800;
-  draft!.href = longInquiry ? `mailto:mplsmntowers@gmail.com?subject=${subject}` : fullDraft;
-  draft!.textContent = 'Open your email draft';
-  status!.textContent = longInquiry
-    ? 'Your inquiry file is ready. Open your email draft and attach the downloaded file to include your full inquiry. Nothing has been sent automatically.'
-    : 'Your inquiry file is ready. Select “Open your email draft” to review and send it to mplsmntowers@gmail.com in your email app. Nothing has been sent automatically.';
-  status!.focus();
+  if (submitting) return;
+  clearErrors();
+  status!.textContent = '';
+  const fields = new FormData(inquiryForm);
+  const payload = {
+    name: String(fields.get('name') ?? ''), email: String(fields.get('email') ?? ''),
+    company: String(fields.get('company') ?? ''), interest: String(fields.get('interest') ?? ''),
+    message: String(fields.get('message') ?? ''), website: String(fields.get('website') ?? ''),
+    consent: fields.get('consent') === 'on', submissionId,
+  };
+  const validation = validateInquiry(payload);
+  if (!validation.inquiry) { showError('Please check your inquiry.', validation.errors); return; }
+  submitting = true;
+  submitButton!.disabled = true;
+  inquiryFields!.disabled = true;
+  inquiryForm.setAttribute('aria-busy', 'true');
+  status!.textContent = 'Submitting your inquiry…';
+  try {
+    const result = await fetch('/api/contact', {
+      method: 'POST', credentials: 'same-origin', redirect: 'error',
+      headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(validation.inquiry),
+      signal: AbortSignal.timeout(15000),
+    });
+    const body = await result.json() as { message?: string; errors?: Record<string, string> };
+    status!.textContent = '';
+    if (result.status !== 202) {
+      showError(body.message ?? 'Your inquiry could not be submitted. Please email mplsmntowers@gmail.com.', body.errors);
+      return;
+    }
+    inquiryForm.reset();
+    submissionId = crypto.randomUUID();
+    status!.textContent = 'Your inquiry was accepted for sending. Inbox delivery is not confirmed. If your request is urgent, call (612) 703-9119.';
+    status!.focus();
+  } catch {
+    status!.textContent = '';
+    showError('We could not confirm submission. Your details are still here; please try again or email mplsmntowers@gmail.com. Inbox delivery is not confirmed.');
+  } finally {
+    submitting = false;
+    inquiryFields!.disabled = false;
+    submitButton!.disabled = false;
+    inquiryForm.removeAttribute('aria-busy');
+  }
 });

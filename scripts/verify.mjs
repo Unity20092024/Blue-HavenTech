@@ -4,6 +4,7 @@ import { existsSync } from 'node:fs';
 import { mkdir, writeFile } from 'node:fs/promises';
 import assert from 'node:assert/strict';
 import { routes } from './site-metadata.mjs';
+import { createContactHandler } from '../server/contact.ts';
 
 const server=await preview({preview:{host:'127.0.0.1',port:4173,strictPort:true}});
 const base='http://127.0.0.1:4173';
@@ -22,7 +23,7 @@ try {
     const context=await browser.newContext({viewport:{width,height:width<600?844:1000},deviceScaleFactor:1,reducedMotion:'reduce'});
     const page=await context.newPage();
     page.on('pageerror',error=>failures.push(`${width}px browser error: ${error.message}`));
-    page.on('response',response=>{if(response.status()>=400)failures.push(`${width}px HTTP ${response.status()}: ${response.url()}`);});
+    page.on('response',response=>{if(response.status()>=400 && new URL(response.url()).pathname !== '/api/contact')failures.push(`${width}px HTTP ${response.status()}: ${response.url()}`);});
     for(const path of routes) {
       const response=await page.goto(base+path);
       await page.waitForLoadState('networkidle');
@@ -56,6 +57,7 @@ try {
         if(href.startsWith('#'))check(link.hashExists,`${path}: missing hash ${href}`);
         else if(href.startsWith('mailto:'))check(href==='mailto:mplsmntowers@gmail.com',`${path}: incorrect business email`);
         else if(href.startsWith('tel:'))check(href==='tel:+16127039119',`${path}: incorrect business phone`);
+        else if(href.startsWith('https://')) { check(['https://vercel.com/legal/privacy-policy','https://resend.com/legal/privacy-policy','https://upstash.com/trust/privacy.pdf','https://policies.google.com/privacy'].includes(href),`${path}: unexpected external link ${href}`); }
         else {check(routes.includes(href),`${path}: unknown link ${href}`);linkDestinations.add(href);}
       }
       const summary={...info};
@@ -77,39 +79,58 @@ try {
     }
     await page.goto(base+'/contact');
     const form=page.locator('#contact-form');
-    await page.getByRole('button',{name:'Prepare my inquiry'}).click();
+    const submit=page.getByRole('button',{name:'Send inquiry'});
+    let submissions=0;
+    let handler=createContactHandler({env:{},log:()=>{}});
+    await page.route('**/api/contact',async route=>{
+      submissions++;
+      // Exercise the real Web handler with a test-only transport and no live
+      // accounts. The HTTPS origin/IP simulate Vercel's trusted boundary.
+      const request=new Request('https://preview.example.test/api/contact',{
+        method:'POST',headers:{origin:'https://preview.example.test','content-type':'application/json','x-vercel-forwarded-for':'203.0.113.25'},body:route.request().postData(),
+      });
+      const response=await handler(request);
+      await route.fulfill({status:response.status,headers:Object.fromEntries(response.headers),body:await response.text()});
+    });
+    await submit.click();
     check(!await form.evaluate(form=>form.checkValidity()),`${width}px empty inquiry accepted`);
     await page.getByLabel('Your name').fill('Preview Visitor');
     await page.getByLabel('Email address').fill('invalid-address');
     await page.getByLabel('Tell us about your goals').fill('I would like to explore a new direction for my home service business.');
     check(!await form.evaluate(form=>form.checkValidity()),`${width}px invalid email accepted`);
     await page.getByLabel('Email address').fill('preview@example.com');
-    const downloadPromise=page.waitForEvent('download');
-    await page.getByRole('button',{name:'Prepare my inquiry'}).click();
-    const download=await downloadPromise;
-    check(download.suggestedFilename()==='haven-bluetech-inquiry.txt',`${width}px inquiry download failed`);
-    const draft=await page.locator('#email-draft').getAttribute('href');
-    check(draft?.startsWith('mailto:mplsmntowers@gmail.com?')&&decodeURIComponent(draft).includes('Preview Visitor'),`${width}px email draft incorrect`);
-    check((await page.locator('#form-status').textContent()).includes('Nothing has been sent automatically'),`${width}px misleading delivery status`);
-    await page.getByLabel('Your name').fill('Updated Visitor');
-    check(await page.locator('#email-draft').getAttribute('href')==='mailto:mplsmntowers@gmail.com',`${width}px stale draft retained after edits`);
+    check(!await form.evaluate(form=>form.checkValidity()),`${width}px missing consent accepted`);
+    await page.getByLabel('I agree to BLUE HAVEN TECH').check();
+    await submit.click();
+    await page.locator('#form-error').waitFor({state:'visible'});
+    check((await page.locator('#form-error').textContent()).includes('not available'),`${width}px unavailable configuration not disclosed`);
+    check(await page.getByLabel('Your name').inputValue()==='Preview Visitor',`${width}px error lost form data`);
+    check(await page.locator('#form-error').evaluate(el=>el===document.activeElement),`${width}px error did not receive focus`);
+    const requestsBeforeWhitespace=submissions;
     await page.getByLabel('Your name').fill('   ');
-    await page.getByRole('button',{name:'Prepare my inquiry'}).click();
-    check(!await form.evaluate(form=>form.checkValidity()),`${width}px whitespace name accepted`);
+    await submit.click();
+    check(await page.getByLabel('Your name').getAttribute('aria-invalid')==='true',`${width}px whitespace name not marked invalid`);
+    check(submissions===requestsBeforeWhitespace,`${width}px invalid client form was posted`);
     await page.getByLabel('Your name').fill('Preview Visitor');
-    await page.getByLabel('Tell us about your goals').fill('Long inquiry. '.repeat(200));
-    const longDownloadPromise=page.waitForEvent('download');
-    await page.getByRole('button',{name:'Prepare my inquiry'}).click();
-    await longDownloadPromise;
-    check(!(await page.locator('#email-draft').getAttribute('href')).includes('&body='),`${width}px oversized mailto URL`);
-    check((await page.locator('#form-status').textContent()).includes('attach the downloaded file'),`${width}px missing long-inquiry instructions`);
-
+    const testEnv={CONTACT_FORM_ENABLED:'true',RESEND_API_KEY:'unit-test-only',RESEND_FROM_EMAIL:'contact@inquiries.havenbluetech.com',UPSTASH_REDIS_REST_URL:'https://unit-test.upstash.io',UPSTASH_REDIS_REST_TOKEN:'unit-test-only',CONTACT_RATE_LIMIT_SALT:'test-only-salt-not-a-live-secret-at-least-32-characters',CONTACT_ALLOWED_ORIGINS:'https://preview.example.test',VERCEL_ENV:'preview'};
+    handler=createContactHandler({env:testEnv,log:()=>{},fetch:async()=>Response.json({result:[0,900]})});
+    await submit.click();
+    await page.waitForFunction(()=>document.querySelector('#form-error')?.textContent.includes('Too many inquiries'));
+    check(await page.getByLabel('Your name').inputValue()==='Preview Visitor',`${width}px rate error lost form data`);
+    handler=createContactHandler({env:testEnv,log:()=>{},fetch:async url=>String(url).includes('upstash.io')?Response.json({result:[1,0]}):Response.json({id:'test-only-acceptance'})});
+    await submit.click();
+    await page.waitForFunction(()=>document.querySelector('#form-status')?.textContent.includes('accepted for sending'));
+    check((await page.locator('#form-status').textContent()).includes('Inbox delivery is not confirmed'),`${width}px false delivery guarantee`);
+    check(await page.getByLabel('Your name').inputValue()==='',`${width}px accepted inquiry did not reset`);
+    check(!await page.getByLabel('I agree to BLUE HAVEN TECH').isChecked(),`${width}px consent persisted after reset`);
+    check(!await submit.isDisabled(),`${width}px submit did not recover`);
+    check(await page.locator('#form-status').evaluate(el=>el===document.activeElement),`${width}px success did not receive focus`);
     await context.close();
   }
   const noJs=await browser.newPage({javaScriptEnabled:false,viewport:{width:390,height:844}});
   await noJs.goto(base+'/contact');
   check(await noJs.getByRole('heading',{level:1}).isVisible(),'No-JS page missing prerendered content');
-  check(await noJs.getByRole('button',{name:'Prepare my inquiry'}).isDisabled(),'No-JS form could leak data through GET');
+  check(await noJs.getByRole('button',{name:'Send inquiry'}).isDisabled(),'No-JS form could leak data through GET');
   await noJs.close();
   const tiny=await browser.newPage({viewport:{width:320,height:700}});
   for(const path of ['/','/contact']){await tiny.goto(base+path);check(!await tiny.evaluate(()=>document.documentElement.scrollWidth>innerWidth),`320px ${path} overflow`);}
@@ -118,7 +139,7 @@ try {
     const response=await fetch(base+asset);check(response.ok,`Missing ${asset}`);
   }
   assert.equal(routes.length,7);
-  await writeFile('previews/verification.json',JSON.stringify({viewports:[360,390,430,768,1024,1440],results,linksChecked,linkDestinations:[...linkDestinations],contactDelivery:'Local download and mailto draft only; no live send or inbox delivery tested.',failures},null,2));
+  await writeFile('previews/verification.json',JSON.stringify({viewports:[360,390,430,768,1024,1440],results,linksChecked,linkDestinations:[...linkDestinations],contactDelivery:'Server handler and UI exercised with test-only provider responses. No live service calls, email send, or inbox delivery tested.',failures},null,2));
   console.log(JSON.stringify({pagesChecked:results.length,linksChecked,failures},null,2));
   if(failures.length)process.exitCode=1;
 } finally {

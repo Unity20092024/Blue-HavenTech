@@ -8,5 +8,5 @@ export default tseslint.config(
   ...tseslint.configs.recommended,
   { files: ['scripts/verify.mjs'], languageOptions: { globals: globals.browser } },
   { files: ['src/**/*.ts'], languageOptions: { globals: globals.browser } },
-  { files: ['scripts/**/*.mjs', 'tests/**/*.mjs', '*.mjs', 'vite.config.ts'], languageOptions: { globals: globals.node } },
+  { files: ['scripts/**/*.mjs', 'tests/**/*.mjs', '*.mjs', 'vite.config.ts', 'api/**/*.ts', 'server/**/*.ts'], languageOptions: { globals: globals.node } },
 );

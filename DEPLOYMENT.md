@@ -1,57 +1,38 @@
-# Vercel preview preparation
+# Vercel preparation — current Phase 4 state
 
-## Project settings
+## Confirmed project
 
-- Repository: `Unity20092024/Blue-HavenTech`
-- Review branch: `feat/haven-bluetech-frontend`
-- Framework: Vite, with TypeScript and build-time HTML prerendering (no React or server runtime).
-- Root directory: repository root (`.`).
-- Node.js: **24.x**, declared in `package.json`.
-- Install: `npm ci` (include development dependencies; they provide build tooling).
-- Build: `npm run build`.
-- Output: `dist`.
-- Existing `vercel.json` supplies the build command, output directory, clean URLs, and basic response headers.
-- No database, functions, cron, or storage required for the current static preview.
+- GitHub: `Unity20092024/Blue-HavenTech`, branch `feat/haven-bluetech-frontend`.
+- Vercel project: `haven-bluetech`, `prj_D5IUmDkllngMFMIkxWuGBVyxsumy`.
+- Team: `dee's projects`, `team_TExJza4pTWjPK1nKXMKX8uYd` / `dees-projects-ac22187b`.
+- Framework: Vite frontend with build-time HTML prerendering, plus a native Vercel Node Web handler at `api/contact.ts`.
+- Node 24.x, repository root, install `npm ci`, build `npm run build`, output `dist`.
+- API max duration: 20 seconds; provider calls have shorter timeouts.
+- Existing protected Phase 3 Preview: https://haven-bluetech-68z7r5bg3-dees-projects-ac22187b.vercel.app, commit `a7c3984`.
 
-## Environment variables
+Phase 4 code has **not** been deployed. No production release became ready in Phase 3. Its initial implicitly production-targeted first deployment failed at the production-origin guard; the successful subsequent deployment is Preview (`target: null`). Do not rely on an omitted target for a brand-new Vercel project: the platform assigns its first deployment to production. Always inspect the actual returned environment before proceeding. Do not use a staging/custom environment as a substitute for the approved Preview scope.
 
-**No user-provided environment variables or secrets are required for Preview.**
+## Contact setup gate
 
-| Variable | Scope | Purpose |
-| --- | --- | --- |
-| `VERCEL_ENV` | Automatic Vercel system variable | `preview` keeps pages noindex; `production` requires an approved canonical origin. |
-| `VERCEL_URL` | Automatic Vercel system variable | Hostname of this deployment, used for preview sitemap and social image URLs. Keep Vercel system-variable exposure enabled. |
-| `SITE_URL` | Future Production build config | Full approved public HTTPS origin, with no path, query, fragment, or credentials. Not a secret. Do not invent a domain or configure DNS as part of this phase. |
-| `CHROMIUM_EXECUTABLE` | Optional local test environment only | Override Chromium executable used by `npm run test:browser`. Otherwise system Chromium or the Playwright-managed browser is used. |
+Read [CONTACT-SETUP.md](CONTACT-SETUP.md) for the required owner approvals, proposed business-owned free Resend/Upstash accounts, proposed verified sending subdomain, exact provider-generated DNS requirements, server-only environment variables, and real delivery-test plan. The existing inbox is **mplsmntowers@gmail.com** and must not be silently changed.
 
-`.env.example` documents the template. Node build scripts read process environment variables; they do not automatically load `.env.local`. Set `SITE_URL` through the Vercel environment settings when a public origin is approved. A local production-mode check can pass variables through the shell. Never put private keys in `VITE_*` variables or commit `.env` files.
+A frontend build needs no credentials. The server remains unavailable until `CONTACT_FORM_ENABLED=true` and all approved runtime variables are correctly configured. Keep Preview secrets separate where practical; never prefix them with `VITE_`, commit them, or paste them in chat. No environment variables or provider resources were changed in Phase 4.
 
-### Search indexing and canonical URLs
+Native Vercel API routing/bundling and live Redis/Resend behavior must be verified on a newly authorized protected Preview after setup. Local tests exercise the Web handler and UI with isolated mocked provider responses; they do not prove provider acceptance, inbox receipt, or platform routing.
 
-All seven pages have unique titles and descriptions, a local favicon, Open Graph metadata, and prerendered HTML. The build emits `robots.txt` and `sitemap.xml`.
+## Canonical and crawler policy
 
-- Local and Preview: `noindex,nofollow` in HTML and `Disallow: /` in robots. These are indexing controls, not access control. Use Vercel Deployment Protection for private reviews.
-- Preview with automatic `VERCEL_URL`: absolute preview URLs appear in its sitemap. No deployment-specific canonical is invented.
-- Local build without any URL: the sitemap is a valid empty URL set; no fabricated host is emitted.
-- Once `SITE_URL` is approved, canonical URLs use it with clean paths. Preview still stays noindex even if this variable is present.
-- Production: build fails if `SITE_URL` is absent or invalid. With it, robots permits crawling and the sitemap uses that stable origin.
-- The 404 page remains noindex and has no canonical URL.
+The owner confirms `havenbluetech.com` is business-owned. The candidate canonical origin is **https://havenbluetech.com**, which passes the policy tests. A read-only public resolver check returned NXDOMAIN for A/AAAA/NS/MX; registration/nameserver/public DNS readiness must be resolved through the registrar before domain launch. No DNS edits or connection were performed.
 
-No domain has been connected and no DNS has been modified.
+- Keep `SITE_URL` unset until public-origin readiness and production launch are approved.
+- Preview/local builds emit noindex metadata and disallow crawling in robots. Vercel also supplies Preview noindex headers. These are indexing controls; Vercel Authentication remains the access control.
+- With automatic `VERCEL_URL`, Preview emits an absolute seven-page sitemap for that deployment. Without a URL, a local build emits a valid empty sitemap, not a fabricated hostname.
+- `SITE_URL`, once approved, provides stable clean canonical paths and social URLs. Preview stays noindex even when it is present.
+- Production-mode builds require an approved valid HTTPS `SITE_URL`; the 404 page stays noindex and omits canonical metadata.
 
-## Contact: precise current limitations
+No custom domain, DNS, production environment variable, or production deployment is authorized as part of Phase 4.
 
-- Public telephone: **(612) 703-9119**, `tel:+16127039119`.
-- Temporary public email: **mplsmntowers@gmail.com**, `mailto:mplsmntowers@gmail.com`.
-- The form creates a local text-file download and a prefilled email link. The visitor must open an email app and send it. It is **not an automatic submission endpoint**.
-- Required fields, email syntax, length limits, whitespace-only name/message rejection, draft reset after edits, and long-email URL fallback are checked.
-- The disclosure and Privacy Policy explain the local preparation and subsequent email handoff. No marketing consent is requested or inferred, no marketing list is created, and no fields are submitted by this website. The visitor chooses whether to send from their email app.
-- No server delivery service, server validation, CAPTCHA, rate limiting, or spam-filter integration is configured. Client validation is not an anti-spam control. Direct public email can receive unsolicited messages.
-- **No live send, provider acceptance, or inbox receipt has been tested.** Do not call the current form a functioning automatic delivery form.
-
-Before production with automatic submissions: choose an approved delivery service and abuse controls; configure credentials privately in Vercel; implement server validation and consent handling appropriate to the final flow; update the privacy policy; then test an authorized inquiry end-to-end through provider acceptance and receipt in the actual inbox. Define required variables only when the service is chosen rather than inventing unused credentials.
-
-## Verification commands
+## Verification
 
 ```sh
 npm ci
@@ -60,20 +41,6 @@ npm run typecheck
 npm run lint
 npm test
 npm run test:browser
-npm audit
 ```
 
-`test:browser` starts its own production preview on loopback port **4173**; keep that port free. Chromium must be installed (`npx playwright install chromium` if using Playwright-managed Chromium). Screenshots and the verification report go to `previews/`. This local test approximates Vercel clean-URL routing; verify real platform redirects, response headers, HTTP 404 behavior, and deployment protection after a preview exists.
-
-## Exact recommended next step (requires deployment approval)
-
-From this repository and the reviewed feature-branch commit, use the Vercel CLI to create **a Preview**:
-
-```sh
-git checkout feat/haven-bluetech-frontend
-vercel deploy
-```
-
-If not linked, select the intended Vercel account/team and create or link the intended project in the prompts, using the settings above. Verify the target and that the deployment is Preview. Do **not** use `--prod`, promote, add domains, or change DNS. If using Git integration later, explicitly keep its Production Branch set to the intended `main`; do not let the feature branch become an automatic production source.
-
-No Vercel project linked to this repository was returned in the connected account scope during this audit. No Vercel project was created or linked in this phase. GitHub's `main` still does not exist, so a PR targeting it remains blocked until an empty baseline initialization is approved. This does not prevent a CLI Preview from the feature branch.
+Browser checks require Chromium and a free loopback port 4173. They cover all seven pages at six viewport widths and use test-only provider responses for the form. The existing protected deployed Preview still runs the earlier Phase 3 draft/download form until a new Preview deployment is separately approved.

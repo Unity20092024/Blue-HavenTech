@@ -1443,7 +1443,7 @@
       }
     }
   ],
-  "linksChecked": 858,
+  "linksChecked": 888,
   "linkDestinations": [
     "/",
     "/about",
@@ -1453,6 +1453,6 @@
     "/privacy",
     "/terms"
   ],
-  "contactDelivery": "Local download and mailto draft only; no live send or inbox delivery tested.",
+  "contactDelivery": "Server handler and UI exercised with test-only provider responses. No live service calls, email send, or inbox delivery tested.",
   "failures": []
 }
