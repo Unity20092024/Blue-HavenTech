@@ -5,3 +5,5 @@
 #contact-form fieldset{border:0;margin:0;padding:0;width:100%;display:flex;flex-direction:column;align-items:start;min-width:0}
 
 .business-phone{margin-top:28px}.business-phone>a{display:inline-flex;align-items:center;min-height:48px;font-size:28px;font-weight:700;letter-spacing:-.6px;color:#8acaff}.business-phone>a:hover,.footer-phone:hover{text-decoration:underline}.footer-phone{display:inline-flex;align-items:center;min-height:44px;color:#8acaff}
+
+.business-email{margin-top:18px}.business-email>a{display:inline-flex;align-items:center;min-height:48px;font-size:22px;font-weight:700;color:#8acaff;overflow-wrap:anywhere;max-width:100%}.footer-email{display:inline-flex;align-items:center;min-height:44px;color:#8acaff;overflow-wrap:anywhere;max-width:100%}.business-email>a:hover,.footer-email:hover{text-decoration:underline}@media(max-width:600px){.business-email>a{font-size:20px}.footer-top>p{min-width:0}}

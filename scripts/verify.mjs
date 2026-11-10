@@ -19,6 +19,8 @@ for(const width of [390,1440]){
  await page.getByLabel('Your name').fill('Preview Visitor');await page.getByLabel('Email address').fill('preview@example.com');await page.getByLabel('Tell us about your goals').fill('I would like to explore a new direction for my home service business.');
  const downloadPromise=page.waitForEvent('download');await page.getByRole('button',{name:'Prepare my inquiry'}).click();const download=await downloadPromise;
  if(download.suggestedFilename()!=='haven-bluetech-inquiry.txt')failures.push('Download failed');
+ const draft=await page.locator('#email-draft').getAttribute('href');
+ if(!draft?.startsWith('mailto:mplsmntowers@gmail.com?')||!decodeURIComponent(draft).includes('Preview Visitor'))failures.push('Email draft recipient or body incorrect');
  await page.close();
 }
 const tiny=await browser.newPage({viewport:{width:320,height:700}});await tiny.goto('http://localhost:5173');if(await tiny.evaluate(()=>document.documentElement.scrollWidth>innerWidth))failures.push('320px overflow');await tiny.close();
