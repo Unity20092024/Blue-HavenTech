@@ -4,7 +4,7 @@ A lightweight, photographic, responsive frontend built with Vite and strict Type
 
 ## Local development
 
-Requires Node.js 22.12+ (or 24) and npm.
+Requires Node.js 24.x and npm.
 
 ```sh
 npm ci
@@ -23,10 +23,10 @@ Desktop and mobile screenshots for all seven pages are in `previews/`. Start the
 With Chromium installed at `/usr/bin/chromium`, run:
 
 ```sh
-node scripts/verify.mjs
+npm run test:browser
 ```
 
-The script checks all pages at 390px and 1440px, loads lazy images through scrolling, checks page errors, broken images, headings, horizontal overflow, mobile menu and Escape, and inquiry downloads. It also checks home overflow at 320px. Results are recorded in `previews/verification.json`.
+The script starts its own production preview on loopback port 4173 and checks all seven pages at 360, 390, 430, 768, 1024, and 1440px. It checks page errors, images, metadata, footer/navigation links, overflow, mobile navigation, inquiry validation/downloads/drafts, and no-JavaScript content. Extra home/contact overflow checks cover 320px. Results are recorded in `previews/verification.json`.
 
 ## Contact behavior and launch details
 
@@ -43,3 +43,7 @@ Mobile parallax is disabled. Reduced-motion preferences disable transitions, rev
 ## Repository state
 
 Repository was empty on initial inspection: no files, branches, commits, or existing work. All frontend work is on `feat/haven-bluetech-frontend`. An empty baseline commit is available as the branch's root so `main` can be initialized with no website files if authorized. No merge or production deployment is authorized.
+
+## Phase 2 pre-deployment review
+
+See [PHASE2-VERIFICATION.md](PHASE2-VERIFICATION.md) for results and remaining issues, and [DEPLOYMENT.md](DEPLOYMENT.md) for Vercel settings, environment variables, canonical/indexing strategy, and the exact Preview-only next step. `npm run lint` and `npm test` are available. No deployment has been performed.

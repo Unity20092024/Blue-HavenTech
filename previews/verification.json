@@ -1,12 +1,307 @@
 {
+  "viewports": [
+    360,
+    390,
+    430,
+    768,
+    1024,
+    1440
+  ],
   "results": [
     {
+      "width": 360,
+      "path": "/",
+      "status": 200,
+      "overflow": false,
+      "images": [],
+      "h1": 1,
+      "heading": "Real Connections.Smarter Technology.Better Business.",
+      "imageStyles": [
+        {
+          "src": "workspace-960.webp",
+          "fit": "cover",
+          "position": "60% 50%"
+        },
+        {
+          "src": "experience-960.webp",
+          "fit": "cover",
+          "position": "50% 50%"
+        },
+        {
+          "src": "connections-960.webp",
+          "fit": "cover",
+          "position": "50% 50%"
+        },
+        {
+          "src": "technology-960.webp",
+          "fit": "cover",
+          "position": "50% 50%"
+        },
+        {
+          "src": "home-960.webp",
+          "fit": "cover",
+          "position": "50% 50%"
+        },
+        {
+          "src": "strategy-960.webp",
+          "fit": "cover",
+          "position": "40% 50%"
+        }
+      ],
+      "footerLinks": [
+        "/",
+        "tel:+16127039119",
+        "mailto:mplsmntowers@gmail.com",
+        "/contact",
+        "/contact",
+        "/privacy",
+        "/terms"
+      ],
+      "metadata": {
+        "title": "Haven BlueTech — Real connections. Smarter technology.",
+        "description": "Advertising experience meets a technology-focused approach for home service businesses.",
+        "robots": "noindex,nofollow",
+        "favicon": "/favicon.svg"
+      }
+    },
+    {
+      "width": 360,
+      "path": "/about",
+      "status": 200,
+      "overflow": false,
+      "images": [],
+      "h1": 1,
+      "heading": "Built on experience.Looking ahead.",
+      "imageStyles": [
+        {
+          "src": "experience-960.webp",
+          "fit": "cover",
+          "position": "50% 50%"
+        }
+      ],
+      "footerLinks": [
+        "/",
+        "tel:+16127039119",
+        "mailto:mplsmntowers@gmail.com",
+        "/contact",
+        "/contact",
+        "/privacy",
+        "/terms"
+      ],
+      "metadata": {
+        "title": "About — Haven BlueTech",
+        "description": "Meet the thinking behind Haven BlueTech: founder advertising experience, meaningful connections, and practical technology.",
+        "robots": "noindex,nofollow",
+        "favicon": "/favicon.svg"
+      }
+    },
+    {
+      "width": 360,
+      "path": "/services",
+      "status": 200,
+      "overflow": false,
+      "images": [],
+      "h1": 1,
+      "heading": "Your business.More connected.",
+      "imageStyles": [
+        {
+          "src": "experience-960.webp",
+          "fit": "cover",
+          "position": "50% 50%"
+        },
+        {
+          "src": "technology-960.webp",
+          "fit": "cover",
+          "position": "50% 50%"
+        },
+        {
+          "src": "connections-960.webp",
+          "fit": "cover",
+          "position": "50% 50%"
+        },
+        {
+          "src": "strategy-960.webp",
+          "fit": "cover",
+          "position": "50% 50%"
+        }
+      ],
+      "footerLinks": [
+        "/",
+        "tel:+16127039119",
+        "mailto:mplsmntowers@gmail.com",
+        "/contact",
+        "/contact",
+        "/privacy",
+        "/terms"
+      ],
+      "metadata": {
+        "title": "Services — Haven BlueTech",
+        "description": "Explore advertising strategy, digital experiences, and connection-focused marketing for home services.",
+        "robots": "noindex,nofollow",
+        "favicon": "/favicon.svg"
+      }
+    },
+    {
+      "width": 360,
+      "path": "/how-it-works",
+      "status": 200,
+      "overflow": false,
+      "images": [],
+      "h1": 1,
+      "heading": "Start with a conversation.Build with intention.",
+      "imageStyles": [],
+      "footerLinks": [
+        "/",
+        "tel:+16127039119",
+        "mailto:mplsmntowers@gmail.com",
+        "/contact",
+        "/contact",
+        "/privacy",
+        "/terms"
+      ],
+      "metadata": {
+        "title": "How It Works — Haven BlueTech",
+        "description": "A clear process from understanding your business to connecting your marketing and technology.",
+        "robots": "noindex,nofollow",
+        "favicon": "/favicon.svg"
+      }
+    },
+    {
+      "width": 360,
+      "path": "/contact",
+      "status": 200,
+      "overflow": false,
+      "images": [],
+      "h1": 1,
+      "heading": "Good things startwith a conversation.",
+      "imageStyles": [
+        {
+          "src": "connections-960.webp",
+          "fit": "cover",
+          "position": "50% 50%"
+        }
+      ],
+      "footerLinks": [
+        "/",
+        "tel:+16127039119",
+        "mailto:mplsmntowers@gmail.com",
+        "/contact",
+        "/contact",
+        "/privacy",
+        "/terms"
+      ],
+      "metadata": {
+        "title": "Contact — Haven BlueTech",
+        "description": "Start a conversation about your home service business and its next chapter.",
+        "robots": "noindex,nofollow",
+        "favicon": "/favicon.svg"
+      }
+    },
+    {
+      "width": 360,
+      "path": "/privacy",
+      "status": 200,
+      "overflow": false,
+      "images": [],
+      "h1": 1,
+      "heading": "Privacy Policy",
+      "imageStyles": [],
+      "footerLinks": [
+        "/",
+        "tel:+16127039119",
+        "mailto:mplsmntowers@gmail.com",
+        "/contact",
+        "/contact",
+        "/privacy",
+        "/terms"
+      ],
+      "metadata": {
+        "title": "Privacy Policy — Haven BlueTech",
+        "description": "How this frontend website handles information and your privacy.",
+        "robots": "noindex,nofollow",
+        "favicon": "/favicon.svg"
+      }
+    },
+    {
+      "width": 360,
+      "path": "/terms",
+      "status": 200,
+      "overflow": false,
+      "images": [],
+      "h1": 1,
+      "heading": "Terms of Use",
+      "imageStyles": [],
+      "footerLinks": [
+        "/",
+        "tel:+16127039119",
+        "mailto:mplsmntowers@gmail.com",
+        "/contact",
+        "/contact",
+        "/privacy",
+        "/terms"
+      ],
+      "metadata": {
+        "title": "Terms — Haven BlueTech",
+        "description": "Terms for using the Haven BlueTech website.",
+        "robots": "noindex,nofollow",
+        "favicon": "/favicon.svg"
+      }
+    },
+    {
       "width": 390,
       "path": "/",
       "status": 200,
       "overflow": false,
       "images": [],
-      "h1": 1
+      "h1": 1,
+      "heading": "Real Connections.Smarter Technology.Better Business.",
+      "imageStyles": [
+        {
+          "src": "workspace-960.webp",
+          "fit": "cover",
+          "position": "60% 50%"
+        },
+        {
+          "src": "experience-960.webp",
+          "fit": "cover",
+          "position": "50% 50%"
+        },
+        {
+          "src": "connections-960.webp",
+          "fit": "cover",
+          "position": "50% 50%"
+        },
+        {
+          "src": "technology-960.webp",
+          "fit": "cover",
+          "position": "50% 50%"
+        },
+        {
+          "src": "home-960.webp",
+          "fit": "cover",
+          "position": "50% 50%"
+        },
+        {
+          "src": "strategy-960.webp",
+          "fit": "cover",
+          "position": "40% 50%"
+        }
+      ],
+      "footerLinks": [
+        "/",
+        "tel:+16127039119",
+        "mailto:mplsmntowers@gmail.com",
+        "/contact",
+        "/contact",
+        "/privacy",
+        "/terms"
+      ],
+      "metadata": {
+        "title": "Haven BlueTech — Real connections. Smarter technology.",
+        "description": "Advertising experience meets a technology-focused approach for home service businesses.",
+        "robots": "noindex,nofollow",
+        "favicon": "/favicon.svg"
+      }
     },
     {
       "width": 390,
@@ -14,7 +309,30 @@
       "status": 200,
       "overflow": false,
       "images": [],
-      "h1": 1
+      "h1": 1,
+      "heading": "Built on experience.Looking ahead.",
+      "imageStyles": [
+        {
+          "src": "experience-960.webp",
+          "fit": "cover",
+          "position": "50% 50%"
+        }
+      ],
+      "footerLinks": [
+        "/",
+        "tel:+16127039119",
+        "mailto:mplsmntowers@gmail.com",
+        "/contact",
+        "/contact",
+        "/privacy",
+        "/terms"
+      ],
+      "metadata": {
+        "title": "About — Haven BlueTech",
+        "description": "Meet the thinking behind Haven BlueTech: founder advertising experience, meaningful connections, and practical technology.",
+        "robots": "noindex,nofollow",
+        "favicon": "/favicon.svg"
+      }
     },
     {
       "width": 390,
@@ -22,7 +340,45 @@
       "status": 200,
       "overflow": false,
       "images": [],
-      "h1": 1
+      "h1": 1,
+      "heading": "Your business.More connected.",
+      "imageStyles": [
+        {
+          "src": "experience-960.webp",
+          "fit": "cover",
+          "position": "50% 50%"
+        },
+        {
+          "src": "technology-960.webp",
+          "fit": "cover",
+          "position": "50% 50%"
+        },
+        {
+          "src": "connections-960.webp",
+          "fit": "cover",
+          "position": "50% 50%"
+        },
+        {
+          "src": "strategy-960.webp",
+          "fit": "cover",
+          "position": "50% 50%"
+        }
+      ],
+      "footerLinks": [
+        "/",
+        "tel:+16127039119",
+        "mailto:mplsmntowers@gmail.com",
+        "/contact",
+        "/contact",
+        "/privacy",
+        "/terms"
+      ],
+      "metadata": {
+        "title": "Services — Haven BlueTech",
+        "description": "Explore advertising strategy, digital experiences, and connection-focused marketing for home services.",
+        "robots": "noindex,nofollow",
+        "favicon": "/favicon.svg"
+      }
     },
     {
       "width": 390,
@@ -30,7 +386,24 @@
       "status": 200,
       "overflow": false,
       "images": [],
-      "h1": 1
+      "h1": 1,
+      "heading": "Start with a conversation.Build with intention.",
+      "imageStyles": [],
+      "footerLinks": [
+        "/",
+        "tel:+16127039119",
+        "mailto:mplsmntowers@gmail.com",
+        "/contact",
+        "/contact",
+        "/privacy",
+        "/terms"
+      ],
+      "metadata": {
+        "title": "How It Works — Haven BlueTech",
+        "description": "A clear process from understanding your business to connecting your marketing and technology.",
+        "robots": "noindex,nofollow",
+        "favicon": "/favicon.svg"
+      }
     },
     {
       "width": 390,
@@ -38,7 +411,30 @@
       "status": 200,
       "overflow": false,
       "images": [],
-      "h1": 1
+      "h1": 1,
+      "heading": "Good things startwith a conversation.",
+      "imageStyles": [
+        {
+          "src": "connections-960.webp",
+          "fit": "cover",
+          "position": "50% 50%"
+        }
+      ],
+      "footerLinks": [
+        "/",
+        "tel:+16127039119",
+        "mailto:mplsmntowers@gmail.com",
+        "/contact",
+        "/contact",
+        "/privacy",
+        "/terms"
+      ],
+      "metadata": {
+        "title": "Contact — Haven BlueTech",
+        "description": "Start a conversation about your home service business and its next chapter.",
+        "robots": "noindex,nofollow",
+        "favicon": "/favicon.svg"
+      }
     },
     {
       "width": 390,
@@ -46,7 +442,24 @@
       "status": 200,
       "overflow": false,
       "images": [],
-      "h1": 1
+      "h1": 1,
+      "heading": "Privacy Policy",
+      "imageStyles": [],
+      "footerLinks": [
+        "/",
+        "tel:+16127039119",
+        "mailto:mplsmntowers@gmail.com",
+        "/contact",
+        "/contact",
+        "/privacy",
+        "/terms"
+      ],
+      "metadata": {
+        "title": "Privacy Policy — Haven BlueTech",
+        "description": "How this frontend website handles information and your privacy.",
+        "robots": "noindex,nofollow",
+        "favicon": "/favicon.svg"
+      }
     },
     {
       "width": 390,
@@ -54,7 +467,741 @@
       "status": 200,
       "overflow": false,
       "images": [],
-      "h1": 1
+      "h1": 1,
+      "heading": "Terms of Use",
+      "imageStyles": [],
+      "footerLinks": [
+        "/",
+        "tel:+16127039119",
+        "mailto:mplsmntowers@gmail.com",
+        "/contact",
+        "/contact",
+        "/privacy",
+        "/terms"
+      ],
+      "metadata": {
+        "title": "Terms — Haven BlueTech",
+        "description": "Terms for using the Haven BlueTech website.",
+        "robots": "noindex,nofollow",
+        "favicon": "/favicon.svg"
+      }
+    },
+    {
+      "width": 430,
+      "path": "/",
+      "status": 200,
+      "overflow": false,
+      "images": [],
+      "h1": 1,
+      "heading": "Real Connections.Smarter Technology.Better Business.",
+      "imageStyles": [
+        {
+          "src": "workspace-960.webp",
+          "fit": "cover",
+          "position": "60% 50%"
+        },
+        {
+          "src": "experience-960.webp",
+          "fit": "cover",
+          "position": "50% 50%"
+        },
+        {
+          "src": "connections-960.webp",
+          "fit": "cover",
+          "position": "50% 50%"
+        },
+        {
+          "src": "technology-960.webp",
+          "fit": "cover",
+          "position": "50% 50%"
+        },
+        {
+          "src": "home-960.webp",
+          "fit": "cover",
+          "position": "50% 50%"
+        },
+        {
+          "src": "strategy-960.webp",
+          "fit": "cover",
+          "position": "40% 50%"
+        }
+      ],
+      "footerLinks": [
+        "/",
+        "tel:+16127039119",
+        "mailto:mplsmntowers@gmail.com",
+        "/contact",
+        "/contact",
+        "/privacy",
+        "/terms"
+      ],
+      "metadata": {
+        "title": "Haven BlueTech — Real connections. Smarter technology.",
+        "description": "Advertising experience meets a technology-focused approach for home service businesses.",
+        "robots": "noindex,nofollow",
+        "favicon": "/favicon.svg"
+      }
+    },
+    {
+      "width": 430,
+      "path": "/about",
+      "status": 200,
+      "overflow": false,
+      "images": [],
+      "h1": 1,
+      "heading": "Built on experience.Looking ahead.",
+      "imageStyles": [
+        {
+          "src": "experience-960.webp",
+          "fit": "cover",
+          "position": "50% 50%"
+        }
+      ],
+      "footerLinks": [
+        "/",
+        "tel:+16127039119",
+        "mailto:mplsmntowers@gmail.com",
+        "/contact",
+        "/contact",
+        "/privacy",
+        "/terms"
+      ],
+      "metadata": {
+        "title": "About — Haven BlueTech",
+        "description": "Meet the thinking behind Haven BlueTech: founder advertising experience, meaningful connections, and practical technology.",
+        "robots": "noindex,nofollow",
+        "favicon": "/favicon.svg"
+      }
+    },
+    {
+      "width": 430,
+      "path": "/services",
+      "status": 200,
+      "overflow": false,
+      "images": [],
+      "h1": 1,
+      "heading": "Your business.More connected.",
+      "imageStyles": [
+        {
+          "src": "experience-960.webp",
+          "fit": "cover",
+          "position": "50% 50%"
+        },
+        {
+          "src": "technology-960.webp",
+          "fit": "cover",
+          "position": "50% 50%"
+        },
+        {
+          "src": "connections-960.webp",
+          "fit": "cover",
+          "position": "50% 50%"
+        },
+        {
+          "src": "strategy-960.webp",
+          "fit": "cover",
+          "position": "50% 50%"
+        }
+      ],
+      "footerLinks": [
+        "/",
+        "tel:+16127039119",
+        "mailto:mplsmntowers@gmail.com",
+        "/contact",
+        "/contact",
+        "/privacy",
+        "/terms"
+      ],
+      "metadata": {
+        "title": "Services — Haven BlueTech",
+        "description": "Explore advertising strategy, digital experiences, and connection-focused marketing for home services.",
+        "robots": "noindex,nofollow",
+        "favicon": "/favicon.svg"
+      }
+    },
+    {
+      "width": 430,
+      "path": "/how-it-works",
+      "status": 200,
+      "overflow": false,
+      "images": [],
+      "h1": 1,
+      "heading": "Start with a conversation.Build with intention.",
+      "imageStyles": [],
+      "footerLinks": [
+        "/",
+        "tel:+16127039119",
+        "mailto:mplsmntowers@gmail.com",
+        "/contact",
+        "/contact",
+        "/privacy",
+        "/terms"
+      ],
+      "metadata": {
+        "title": "How It Works — Haven BlueTech",
+        "description": "A clear process from understanding your business to connecting your marketing and technology.",
+        "robots": "noindex,nofollow",
+        "favicon": "/favicon.svg"
+      }
+    },
+    {
+      "width": 430,
+      "path": "/contact",
+      "status": 200,
+      "overflow": false,
+      "images": [],
+      "h1": 1,
+      "heading": "Good things startwith a conversation.",
+      "imageStyles": [
+        {
+          "src": "connections-960.webp",
+          "fit": "cover",
+          "position": "50% 50%"
+        }
+      ],
+      "footerLinks": [
+        "/",
+        "tel:+16127039119",
+        "mailto:mplsmntowers@gmail.com",
+        "/contact",
+        "/contact",
+        "/privacy",
+        "/terms"
+      ],
+      "metadata": {
+        "title": "Contact — Haven BlueTech",
+        "description": "Start a conversation about your home service business and its next chapter.",
+        "robots": "noindex,nofollow",
+        "favicon": "/favicon.svg"
+      }
+    },
+    {
+      "width": 430,
+      "path": "/privacy",
+      "status": 200,
+      "overflow": false,
+      "images": [],
+      "h1": 1,
+      "heading": "Privacy Policy",
+      "imageStyles": [],
+      "footerLinks": [
+        "/",
+        "tel:+16127039119",
+        "mailto:mplsmntowers@gmail.com",
+        "/contact",
+        "/contact",
+        "/privacy",
+        "/terms"
+      ],
+      "metadata": {
+        "title": "Privacy Policy — Haven BlueTech",
+        "description": "How this frontend website handles information and your privacy.",
+        "robots": "noindex,nofollow",
+        "favicon": "/favicon.svg"
+      }
+    },
+    {
+      "width": 430,
+      "path": "/terms",
+      "status": 200,
+      "overflow": false,
+      "images": [],
+      "h1": 1,
+      "heading": "Terms of Use",
+      "imageStyles": [],
+      "footerLinks": [
+        "/",
+        "tel:+16127039119",
+        "mailto:mplsmntowers@gmail.com",
+        "/contact",
+        "/contact",
+        "/privacy",
+        "/terms"
+      ],
+      "metadata": {
+        "title": "Terms — Haven BlueTech",
+        "description": "Terms for using the Haven BlueTech website.",
+        "robots": "noindex,nofollow",
+        "favicon": "/favicon.svg"
+      }
+    },
+    {
+      "width": 768,
+      "path": "/",
+      "status": 200,
+      "overflow": false,
+      "images": [],
+      "h1": 1,
+      "heading": "Real Connections.Smarter Technology.Better Business.",
+      "imageStyles": [
+        {
+          "src": "workspace-960.webp",
+          "fit": "cover",
+          "position": "50% 50%"
+        },
+        {
+          "src": "experience-960.webp",
+          "fit": "cover",
+          "position": "50% 50%"
+        },
+        {
+          "src": "connections-960.webp",
+          "fit": "cover",
+          "position": "50% 50%"
+        },
+        {
+          "src": "technology-960.webp",
+          "fit": "cover",
+          "position": "50% 50%"
+        },
+        {
+          "src": "home-960.webp",
+          "fit": "cover",
+          "position": "50% 50%"
+        },
+        {
+          "src": "strategy-960.webp",
+          "fit": "cover",
+          "position": "40% 50%"
+        }
+      ],
+      "footerLinks": [
+        "/",
+        "tel:+16127039119",
+        "mailto:mplsmntowers@gmail.com",
+        "/contact",
+        "/contact",
+        "/privacy",
+        "/terms"
+      ],
+      "metadata": {
+        "title": "Haven BlueTech — Real connections. Smarter technology.",
+        "description": "Advertising experience meets a technology-focused approach for home service businesses.",
+        "robots": "noindex,nofollow",
+        "favicon": "/favicon.svg"
+      }
+    },
+    {
+      "width": 768,
+      "path": "/about",
+      "status": 200,
+      "overflow": false,
+      "images": [],
+      "h1": 1,
+      "heading": "Built on experience.Looking ahead.",
+      "imageStyles": [
+        {
+          "src": "experience-960.webp",
+          "fit": "cover",
+          "position": "50% 50%"
+        }
+      ],
+      "footerLinks": [
+        "/",
+        "tel:+16127039119",
+        "mailto:mplsmntowers@gmail.com",
+        "/contact",
+        "/contact",
+        "/privacy",
+        "/terms"
+      ],
+      "metadata": {
+        "title": "About — Haven BlueTech",
+        "description": "Meet the thinking behind Haven BlueTech: founder advertising experience, meaningful connections, and practical technology.",
+        "robots": "noindex,nofollow",
+        "favicon": "/favicon.svg"
+      }
+    },
+    {
+      "width": 768,
+      "path": "/services",
+      "status": 200,
+      "overflow": false,
+      "images": [],
+      "h1": 1,
+      "heading": "Your business.More connected.",
+      "imageStyles": [
+        {
+          "src": "experience-960.webp",
+          "fit": "cover",
+          "position": "50% 50%"
+        },
+        {
+          "src": "technology-960.webp",
+          "fit": "cover",
+          "position": "50% 50%"
+        },
+        {
+          "src": "connections-960.webp",
+          "fit": "cover",
+          "position": "50% 50%"
+        },
+        {
+          "src": "strategy-960.webp",
+          "fit": "cover",
+          "position": "50% 50%"
+        }
+      ],
+      "footerLinks": [
+        "/",
+        "tel:+16127039119",
+        "mailto:mplsmntowers@gmail.com",
+        "/contact",
+        "/contact",
+        "/privacy",
+        "/terms"
+      ],
+      "metadata": {
+        "title": "Services — Haven BlueTech",
+        "description": "Explore advertising strategy, digital experiences, and connection-focused marketing for home services.",
+        "robots": "noindex,nofollow",
+        "favicon": "/favicon.svg"
+      }
+    },
+    {
+      "width": 768,
+      "path": "/how-it-works",
+      "status": 200,
+      "overflow": false,
+      "images": [],
+      "h1": 1,
+      "heading": "Start with a conversation.Build with intention.",
+      "imageStyles": [],
+      "footerLinks": [
+        "/",
+        "tel:+16127039119",
+        "mailto:mplsmntowers@gmail.com",
+        "/contact",
+        "/contact",
+        "/privacy",
+        "/terms"
+      ],
+      "metadata": {
+        "title": "How It Works — Haven BlueTech",
+        "description": "A clear process from understanding your business to connecting your marketing and technology.",
+        "robots": "noindex,nofollow",
+        "favicon": "/favicon.svg"
+      }
+    },
+    {
+      "width": 768,
+      "path": "/contact",
+      "status": 200,
+      "overflow": false,
+      "images": [],
+      "h1": 1,
+      "heading": "Good things startwith a conversation.",
+      "imageStyles": [
+        {
+          "src": "connections-960.webp",
+          "fit": "cover",
+          "position": "50% 50%"
+        }
+      ],
+      "footerLinks": [
+        "/",
+        "tel:+16127039119",
+        "mailto:mplsmntowers@gmail.com",
+        "/contact",
+        "/contact",
+        "/privacy",
+        "/terms"
+      ],
+      "metadata": {
+        "title": "Contact — Haven BlueTech",
+        "description": "Start a conversation about your home service business and its next chapter.",
+        "robots": "noindex,nofollow",
+        "favicon": "/favicon.svg"
+      }
+    },
+    {
+      "width": 768,
+      "path": "/privacy",
+      "status": 200,
+      "overflow": false,
+      "images": [],
+      "h1": 1,
+      "heading": "Privacy Policy",
+      "imageStyles": [],
+      "footerLinks": [
+        "/",
+        "tel:+16127039119",
+        "mailto:mplsmntowers@gmail.com",
+        "/contact",
+        "/contact",
+        "/privacy",
+        "/terms"
+      ],
+      "metadata": {
+        "title": "Privacy Policy — Haven BlueTech",
+        "description": "How this frontend website handles information and your privacy.",
+        "robots": "noindex,nofollow",
+        "favicon": "/favicon.svg"
+      }
+    },
+    {
+      "width": 768,
+      "path": "/terms",
+      "status": 200,
+      "overflow": false,
+      "images": [],
+      "h1": 1,
+      "heading": "Terms of Use",
+      "imageStyles": [],
+      "footerLinks": [
+        "/",
+        "tel:+16127039119",
+        "mailto:mplsmntowers@gmail.com",
+        "/contact",
+        "/contact",
+        "/privacy",
+        "/terms"
+      ],
+      "metadata": {
+        "title": "Terms — Haven BlueTech",
+        "description": "Terms for using the Haven BlueTech website.",
+        "robots": "noindex,nofollow",
+        "favicon": "/favicon.svg"
+      }
+    },
+    {
+      "width": 1024,
+      "path": "/",
+      "status": 200,
+      "overflow": false,
+      "images": [],
+      "h1": 1,
+      "heading": "Real Connections.Smarter Technology.Better Business.",
+      "imageStyles": [
+        {
+          "src": "workspace-2400.webp",
+          "fit": "cover",
+          "position": "50% 50%"
+        },
+        {
+          "src": "experience-960.webp",
+          "fit": "cover",
+          "position": "50% 50%"
+        },
+        {
+          "src": "connections-960.webp",
+          "fit": "cover",
+          "position": "50% 50%"
+        },
+        {
+          "src": "technology-960.webp",
+          "fit": "cover",
+          "position": "50% 50%"
+        },
+        {
+          "src": "home-960.webp",
+          "fit": "cover",
+          "position": "50% 50%"
+        },
+        {
+          "src": "strategy-960.webp",
+          "fit": "cover",
+          "position": "40% 50%"
+        }
+      ],
+      "footerLinks": [
+        "/",
+        "tel:+16127039119",
+        "mailto:mplsmntowers@gmail.com",
+        "/contact",
+        "/contact",
+        "/privacy",
+        "/terms"
+      ],
+      "metadata": {
+        "title": "Haven BlueTech — Real connections. Smarter technology.",
+        "description": "Advertising experience meets a technology-focused approach for home service businesses.",
+        "robots": "noindex,nofollow",
+        "favicon": "/favicon.svg"
+      }
+    },
+    {
+      "width": 1024,
+      "path": "/about",
+      "status": 200,
+      "overflow": false,
+      "images": [],
+      "h1": 1,
+      "heading": "Built on experience.Looking ahead.",
+      "imageStyles": [
+        {
+          "src": "experience-960.webp",
+          "fit": "cover",
+          "position": "50% 50%"
+        }
+      ],
+      "footerLinks": [
+        "/",
+        "tel:+16127039119",
+        "mailto:mplsmntowers@gmail.com",
+        "/contact",
+        "/contact",
+        "/privacy",
+        "/terms"
+      ],
+      "metadata": {
+        "title": "About — Haven BlueTech",
+        "description": "Meet the thinking behind Haven BlueTech: founder advertising experience, meaningful connections, and practical technology.",
+        "robots": "noindex,nofollow",
+        "favicon": "/favicon.svg"
+      }
+    },
+    {
+      "width": 1024,
+      "path": "/services",
+      "status": 200,
+      "overflow": false,
+      "images": [],
+      "h1": 1,
+      "heading": "Your business.More connected.",
+      "imageStyles": [
+        {
+          "src": "experience-960.webp",
+          "fit": "cover",
+          "position": "50% 50%"
+        },
+        {
+          "src": "technology-960.webp",
+          "fit": "cover",
+          "position": "50% 50%"
+        },
+        {
+          "src": "connections-960.webp",
+          "fit": "cover",
+          "position": "50% 50%"
+        },
+        {
+          "src": "strategy-960.webp",
+          "fit": "cover",
+          "position": "50% 50%"
+        }
+      ],
+      "footerLinks": [
+        "/",
+        "tel:+16127039119",
+        "mailto:mplsmntowers@gmail.com",
+        "/contact",
+        "/contact",
+        "/privacy",
+        "/terms"
+      ],
+      "metadata": {
+        "title": "Services — Haven BlueTech",
+        "description": "Explore advertising strategy, digital experiences, and connection-focused marketing for home services.",
+        "robots": "noindex,nofollow",
+        "favicon": "/favicon.svg"
+      }
+    },
+    {
+      "width": 1024,
+      "path": "/how-it-works",
+      "status": 200,
+      "overflow": false,
+      "images": [],
+      "h1": 1,
+      "heading": "Start with a conversation.Build with intention.",
+      "imageStyles": [],
+      "footerLinks": [
+        "/",
+        "tel:+16127039119",
+        "mailto:mplsmntowers@gmail.com",
+        "/contact",
+        "/contact",
+        "/privacy",
+        "/terms"
+      ],
+      "metadata": {
+        "title": "How It Works — Haven BlueTech",
+        "description": "A clear process from understanding your business to connecting your marketing and technology.",
+        "robots": "noindex,nofollow",
+        "favicon": "/favicon.svg"
+      }
+    },
+    {
+      "width": 1024,
+      "path": "/contact",
+      "status": 200,
+      "overflow": false,
+      "images": [],
+      "h1": 1,
+      "heading": "Good things startwith a conversation.",
+      "imageStyles": [
+        {
+          "src": "connections-960.webp",
+          "fit": "cover",
+          "position": "50% 50%"
+        }
+      ],
+      "footerLinks": [
+        "/",
+        "tel:+16127039119",
+        "mailto:mplsmntowers@gmail.com",
+        "/contact",
+        "/contact",
+        "/privacy",
+        "/terms"
+      ],
+      "metadata": {
+        "title": "Contact — Haven BlueTech",
+        "description": "Start a conversation about your home service business and its next chapter.",
+        "robots": "noindex,nofollow",
+        "favicon": "/favicon.svg"
+      }
+    },
+    {
+      "width": 1024,
+      "path": "/privacy",
+      "status": 200,
+      "overflow": false,
+      "images": [],
+      "h1": 1,
+      "heading": "Privacy Policy",
+      "imageStyles": [],
+      "footerLinks": [
+        "/",
+        "tel:+16127039119",
+        "mailto:mplsmntowers@gmail.com",
+        "/contact",
+        "/contact",
+        "/privacy",
+        "/terms"
+      ],
+      "metadata": {
+        "title": "Privacy Policy — Haven BlueTech",
+        "description": "How this frontend website handles information and your privacy.",
+        "robots": "noindex,nofollow",
+        "favicon": "/favicon.svg"
+      }
+    },
+    {
+      "width": 1024,
+      "path": "/terms",
+      "status": 200,
+      "overflow": false,
+      "images": [],
+      "h1": 1,
+      "heading": "Terms of Use",
+      "imageStyles": [],
+      "footerLinks": [
+        "/",
+        "tel:+16127039119",
+        "mailto:mplsmntowers@gmail.com",
+        "/contact",
+        "/contact",
+        "/privacy",
+        "/terms"
+      ],
+      "metadata": {
+        "title": "Terms — Haven BlueTech",
+        "description": "Terms for using the Haven BlueTech website.",
+        "robots": "noindex,nofollow",
+        "favicon": "/favicon.svg"
+      }
     },
     {
       "width": 1440,
@@ -62,7 +1209,55 @@
       "status": 200,
       "overflow": false,
       "images": [],
-      "h1": 1
+      "h1": 1,
+      "heading": "Real Connections.Smarter Technology.Better Business.",
+      "imageStyles": [
+        {
+          "src": "workspace-2400.webp",
+          "fit": "cover",
+          "position": "50% 50%"
+        },
+        {
+          "src": "experience-960.webp",
+          "fit": "cover",
+          "position": "50% 50%"
+        },
+        {
+          "src": "connections-960.webp",
+          "fit": "cover",
+          "position": "50% 50%"
+        },
+        {
+          "src": "technology-960.webp",
+          "fit": "cover",
+          "position": "50% 50%"
+        },
+        {
+          "src": "home-960.webp",
+          "fit": "cover",
+          "position": "50% 50%"
+        },
+        {
+          "src": "strategy-960.webp",
+          "fit": "cover",
+          "position": "40% 50%"
+        }
+      ],
+      "footerLinks": [
+        "/",
+        "tel:+16127039119",
+        "mailto:mplsmntowers@gmail.com",
+        "/contact",
+        "/contact",
+        "/privacy",
+        "/terms"
+      ],
+      "metadata": {
+        "title": "Haven BlueTech — Real connections. Smarter technology.",
+        "description": "Advertising experience meets a technology-focused approach for home service businesses.",
+        "robots": "noindex,nofollow",
+        "favicon": "/favicon.svg"
+      }
     },
     {
       "width": 1440,
@@ -70,7 +1265,30 @@
       "status": 200,
       "overflow": false,
       "images": [],
-      "h1": 1
+      "h1": 1,
+      "heading": "Built on experience.Looking ahead.",
+      "imageStyles": [
+        {
+          "src": "experience-960.webp",
+          "fit": "cover",
+          "position": "50% 50%"
+        }
+      ],
+      "footerLinks": [
+        "/",
+        "tel:+16127039119",
+        "mailto:mplsmntowers@gmail.com",
+        "/contact",
+        "/contact",
+        "/privacy",
+        "/terms"
+      ],
+      "metadata": {
+        "title": "About — Haven BlueTech",
+        "description": "Meet the thinking behind Haven BlueTech: founder advertising experience, meaningful connections, and practical technology.",
+        "robots": "noindex,nofollow",
+        "favicon": "/favicon.svg"
+      }
     },
     {
       "width": 1440,
@@ -78,7 +1296,45 @@
       "status": 200,
       "overflow": false,
       "images": [],
-      "h1": 1
+      "h1": 1,
+      "heading": "Your business.More connected.",
+      "imageStyles": [
+        {
+          "src": "experience-960.webp",
+          "fit": "cover",
+          "position": "50% 50%"
+        },
+        {
+          "src": "technology-960.webp",
+          "fit": "cover",
+          "position": "50% 50%"
+        },
+        {
+          "src": "connections-960.webp",
+          "fit": "cover",
+          "position": "50% 50%"
+        },
+        {
+          "src": "strategy-960.webp",
+          "fit": "cover",
+          "position": "50% 50%"
+        }
+      ],
+      "footerLinks": [
+        "/",
+        "tel:+16127039119",
+        "mailto:mplsmntowers@gmail.com",
+        "/contact",
+        "/contact",
+        "/privacy",
+        "/terms"
+      ],
+      "metadata": {
+        "title": "Services — Haven BlueTech",
+        "description": "Explore advertising strategy, digital experiences, and connection-focused marketing for home services.",
+        "robots": "noindex,nofollow",
+        "favicon": "/favicon.svg"
+      }
     },
     {
       "width": 1440,
@@ -86,7 +1342,24 @@
       "status": 200,
       "overflow": false,
       "images": [],
-      "h1": 1
+      "h1": 1,
+      "heading": "Start with a conversation.Build with intention.",
+      "imageStyles": [],
+      "footerLinks": [
+        "/",
+        "tel:+16127039119",
+        "mailto:mplsmntowers@gmail.com",
+        "/contact",
+        "/contact",
+        "/privacy",
+        "/terms"
+      ],
+      "metadata": {
+        "title": "How It Works — Haven BlueTech",
+        "description": "A clear process from understanding your business to connecting your marketing and technology.",
+        "robots": "noindex,nofollow",
+        "favicon": "/favicon.svg"
+      }
     },
     {
       "width": 1440,
@@ -94,7 +1367,30 @@
       "status": 200,
       "overflow": false,
       "images": [],
-      "h1": 1
+      "h1": 1,
+      "heading": "Good things startwith a conversation.",
+      "imageStyles": [
+        {
+          "src": "connections-960.webp",
+          "fit": "cover",
+          "position": "50% 50%"
+        }
+      ],
+      "footerLinks": [
+        "/",
+        "tel:+16127039119",
+        "mailto:mplsmntowers@gmail.com",
+        "/contact",
+        "/contact",
+        "/privacy",
+        "/terms"
+      ],
+      "metadata": {
+        "title": "Contact — Haven BlueTech",
+        "description": "Start a conversation about your home service business and its next chapter.",
+        "robots": "noindex,nofollow",
+        "favicon": "/favicon.svg"
+      }
     },
     {
       "width": 1440,
@@ -102,7 +1398,24 @@
       "status": 200,
       "overflow": false,
       "images": [],
-      "h1": 1
+      "h1": 1,
+      "heading": "Privacy Policy",
+      "imageStyles": [],
+      "footerLinks": [
+        "/",
+        "tel:+16127039119",
+        "mailto:mplsmntowers@gmail.com",
+        "/contact",
+        "/contact",
+        "/privacy",
+        "/terms"
+      ],
+      "metadata": {
+        "title": "Privacy Policy — Haven BlueTech",
+        "description": "How this frontend website handles information and your privacy.",
+        "robots": "noindex,nofollow",
+        "favicon": "/favicon.svg"
+      }
     },
     {
       "width": 1440,
@@ -110,8 +1423,36 @@
       "status": 200,
       "overflow": false,
       "images": [],
-      "h1": 1
+      "h1": 1,
+      "heading": "Terms of Use",
+      "imageStyles": [],
+      "footerLinks": [
+        "/",
+        "tel:+16127039119",
+        "mailto:mplsmntowers@gmail.com",
+        "/contact",
+        "/contact",
+        "/privacy",
+        "/terms"
+      ],
+      "metadata": {
+        "title": "Terms — Haven BlueTech",
+        "description": "Terms for using the Haven BlueTech website.",
+        "robots": "noindex,nofollow",
+        "favicon": "/favicon.svg"
+      }
     }
   ],
+  "linksChecked": 858,
+  "linkDestinations": [
+    "/",
+    "/about",
+    "/services",
+    "/how-it-works",
+    "/contact",
+    "/privacy",
+    "/terms"
+  ],
+  "contactDelivery": "Local download and mailto draft only; no live send or inbox delivery tested.",
   "failures": []
 }
