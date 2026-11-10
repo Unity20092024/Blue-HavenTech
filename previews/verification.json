@@ -1,0 +1,117 @@
+{
+  "results": [
+    {
+      "width": 390,
+      "path": "/",
+      "status": 200,
+      "overflow": false,
+      "images": [],
+      "h1": 1
+    },
+    {
+      "width": 390,
+      "path": "/about",
+      "status": 200,
+      "overflow": false,
+      "images": [],
+      "h1": 1
+    },
+    {
+      "width": 390,
+      "path": "/services",
+      "status": 200,
+      "overflow": false,
+      "images": [],
+      "h1": 1
+    },
+    {
+      "width": 390,
+      "path": "/how-it-works",
+      "status": 200,
+      "overflow": false,
+      "images": [],
+      "h1": 1
+    },
+    {
+      "width": 390,
+      "path": "/contact",
+      "status": 200,
+      "overflow": false,
+      "images": [],
+      "h1": 1
+    },
+    {
+      "width": 390,
+      "path": "/privacy",
+      "status": 200,
+      "overflow": false,
+      "images": [],
+      "h1": 1
+    },
+    {
+      "width": 390,
+      "path": "/terms",
+      "status": 200,
+      "overflow": false,
+      "images": [],
+      "h1": 1
+    },
+    {
+      "width": 1440,
+      "path": "/",
+      "status": 200,
+      "overflow": false,
+      "images": [],
+      "h1": 1
+    },
+    {
+      "width": 1440,
+      "path": "/about",
+      "status": 200,
+      "overflow": false,
+      "images": [],
+      "h1": 1
+    },
+    {
+      "width": 1440,
+      "path": "/services",
+      "status": 200,
+      "overflow": false,
+      "images": [],
+      "h1": 1
+    },
+    {
+      "width": 1440,
+      "path": "/how-it-works",
+      "status": 200,
+      "overflow": false,
+      "images": [],
+      "h1": 1
+    },
+    {
+      "width": 1440,
+      "path": "/contact",
+      "status": 200,
+      "overflow": false,
+      "images": [],
+      "h1": 1
+    },
+    {
+      "width": 1440,
+      "path": "/privacy",
+      "status": 200,
+      "overflow": false,
+      "images": [],
+      "h1": 1
+    },
+    {
+      "width": 1440,
+      "path": "/terms",
+      "status": 200,
+      "overflow": false,
+      "images": [],
+      "h1": 1
+    }
+  ],
+  "failures": []
+}
